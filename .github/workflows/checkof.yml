@@ -32,7 +32,12 @@ jobs:
     - name: Run Checkov scan
 
       run: |
-        checkov -d .  -o sarif --output-file-path results.sarif|| true
+        checkov -d .  -o sarif --output-file-path results.sarif || true
+        
+    - name: install
+      run: |
+        wget -O sarif-converter https://gitlab.com/ignis-build/sarif-converter/-/releases/permalink/latest/downloads/bin/sarif-converter-linux
+        chmod +x sarif-converter
         
         
     - name: send curl
