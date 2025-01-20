@@ -37,6 +37,7 @@ jobs:
     - name: view Json
       run: |
         readlink -f results.json
+        cat /home/runner/work/checkof/checkof/results.json
            
     - name: send curl
       run: |
