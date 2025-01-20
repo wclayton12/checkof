@@ -47,6 +47,7 @@ jobs:
       - name: convert to json
         run: |
           cp results.sarif results.json
+          cat results.json
           
       - name: send curl
         run: |
