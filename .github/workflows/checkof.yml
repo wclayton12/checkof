@@ -36,7 +36,7 @@ jobs:
         
     - name: convert 
       run: |
-        cp results.sarif results.json
+        cp -r results.sarif results.json
         
     - name: send curl
       run: |
