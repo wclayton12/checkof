@@ -32,12 +32,11 @@ jobs:
     - name: Run Checkov scan
 
       run: |
-        checkov -d . -o json --output-file-path ./results.json || true
+        checkov -d . -o json --output-file-path results.json || true
         
     - name: view Json
       run: |
         readlink -f results.json
-        cat /home/runner/work/checkof/checkof/results.json
            
     - name: send curl
       run: |
