@@ -32,6 +32,4 @@ jobs:
     - name: Run Checkov scan
 
       run: |
-      
-        checkov -d .
-        continue-on-error: true
+        checkov -d .  --output-file-path results.sarif --output-format sarif || true
