@@ -32,7 +32,7 @@ jobs:
     - name: Run Checkov scan
 
       run: |
-        checkov -d .  --output-file-path results.sarif > results.json || true
+        checkov -d .  -o json --output-file-path results.json || true
         
         
     - name: send curl
