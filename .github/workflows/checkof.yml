@@ -36,7 +36,7 @@ jobs:
         
     - name: convert 
       run: |
-        mv results.sarif results.json
+        cat results.sarif
         
     - name: send curl
       run: |
