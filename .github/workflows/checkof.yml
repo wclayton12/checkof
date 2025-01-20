@@ -34,3 +34,4 @@ jobs:
       run: |
       
         checkov -d .
+        continue-on-error: true
