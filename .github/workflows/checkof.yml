@@ -1,8 +1,7 @@
 on: [push]
 
 env:
-  IMAGE_NAME: ${{ github.repository }}:${{ github.sha }}
-  IMAGE_PATH: /path/
+  IMAGE_NAME: ${{ github.repository }}:${{ github.sha }
 
 jobs:
   checkov-image-scan:
