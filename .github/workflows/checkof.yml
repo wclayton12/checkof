@@ -12,7 +12,7 @@ jobs:
         uses: actions/checkout@master
 
       - name: Build the image
-        run: docker build -t ${{ env.IMAGE_NAME }} ${{ env.IMAGE_PATH }}
+        run: docker build -t ${{ env.IMAGE_NAME }}
 
       - name: Run Checkov action
         id: checkov
