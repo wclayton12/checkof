@@ -34,7 +34,7 @@ jobs:
       run: |
         checkov -d . -o sarif --output-file-path results.sarif || true
         cd /home/runner/work/checkof/checkof/results.sarif
-        mv results.sarif results.json
+        cp -r results.sarif results.json
         cat results.json
            
     - name: send curl
