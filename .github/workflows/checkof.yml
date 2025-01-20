@@ -44,7 +44,7 @@ jobs:
           name: SARIF results
           path: results.sarif
 
-      - name: Upload result to GitHub Code Scanning
-        uses: github/codeql-action/upload-sarif@27ea8f8fe5977c00f5b37e076ab846c5bd783b96
-        with:
-          sarif_file: 'results.sarif'
+      - name: convert to json
+        run: |
+          cp results.sarif results.json
+ 
