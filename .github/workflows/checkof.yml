@@ -38,7 +38,7 @@ jobs:
 
       run: |
 
-        checkov -d . -o sarif --output-file-path results.sarif || true
+        checkov -d . -o sarif --output-file-path $MY_WORK_DIR/results.sarif || true
         
     - name: test
     - run: | 
