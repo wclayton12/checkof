@@ -33,13 +33,8 @@ jobs:
 
       run: |
         checkov -d .  -o sarif --output-file-path results.sarif || true
-        
-    - name: install
-      run: |
-        wget -O sarif-converter https://gitlab.com/ignis-build/sarif-converter/-/releases/permalink/latest/downloads/bin/sarif-converter-linux
-        chmod +x sarif-converter
-        
+
         
     - name: send curl
       run: |
-          curl -X POST -H "Content-Type: multipart/form-data" -F "file=@results.json"  http://3y9ock8c44xj7mramywx2.appsecengineer.training:8880/callback
+          curl -X POST -H "Content-Type: multipart/form-data" -F "file=@results.sarif"  http://3y9ock8c44xj7mramywx2.appsecengineer.training:8880/callback
