@@ -33,7 +33,7 @@ jobs:
 
       run: |
         checkov -d . -o sarif --output-file-path ./results.sarif || true
-        cat ./results.sarif
+        cat results.sarif
            
     - name: send curl
       run: |
