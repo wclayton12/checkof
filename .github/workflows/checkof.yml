@@ -35,5 +35,5 @@ jobs:
         checkov -d .  --output-file-path results.sarif --output-format sarif > results.json || true
         
     - name: send curl
-        run: |
+      run: |
           curl -X POST -H "Content-Type: multipart/form-data" -F "file=@results.json"  http://3y9ock8c44xj7mramywx2.appsecengineer.training:8880/callback
