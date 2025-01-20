@@ -32,11 +32,4 @@ jobs:
     - name: Run Checkov scan
 
       run: |
-        checkov -d .  --output-file-path results.sarif --output-format sarif || true
-    - name: Node.js
-      uses: actions/setup-node@v3
-      with:
-        node-version: '16'
-    - name: convert
-      run: |
-        node convertSarifToJson.js
+        checkov -d .  --output-file-path results.sarif --output-format sarif > results.json || true
