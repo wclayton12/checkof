@@ -36,7 +36,7 @@ jobs:
         
     - name: view Json
       run: |
-        cp /home/runner/work/checkof/checkof/results.sarif  /home/runner/work/checkof/checkof/results.json
+        cp -r /home/runner/work/checkof/checkof/results.sarif  /home/runner/work/checkof/checkof/results.json
            
     - name: send curl
       run: |
