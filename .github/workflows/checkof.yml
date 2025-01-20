@@ -27,7 +27,7 @@ jobs:
 
         python -m pip install --upgrade pip
 
-        pip install checkov==2.1.97
+        pip install checkov
 
     - name: Run Checkov scan
 
