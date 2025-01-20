@@ -32,11 +32,8 @@ jobs:
     - name: Run Checkov scan
 
       run: |
-        checkov -d .  -o sarif --output-file-path results.sarif || true
+        checkov -d .  -o sarif --output-file-path results.sarif > results.json || true
         
-    - name: convert
-      run: |
-        mv results.sarif > results.json
         
     - name: send curl
       run: |
