@@ -1,25 +1,33 @@
 name: Checkov Docker Scan
 
+ 
+
 on: [push]
+
+ 
 
 jobs:
 
   checkov_scan:
 
     runs-on: ubuntu-latest
+
     steps:
-      # Checks-out your repository under $GITHUB_WORKSPACE, so follow-up steps can access it
-      - uses: actions/checkout@v4
+
+    - name: Checkout code
+
+      uses: actions/checkout@v4
 
     - name: Set up Python
 
-      uses: actions/setup-python@v2
+      uses: actions/setup-python@v4
 
       with:
 
         python-version: '3.x'
 
     - name: Install Checkov
+
       run: |
 
         python -m pip install --upgrade pip
@@ -30,13 +38,9 @@ jobs:
 
       run: |
 
-        checkov -d .
-         with:
-          # This will add both a CLI output to the console and create a results.sarif file
-          output_format: cli,sarif
-          output_file_path: console,results.sarif
+        checkov -d . - o sarif -- output-file-path results.sarif
           
-      - name: send curl
-        run: |
-          curl -X POST -H "Content-Type: multipart/form-data" -F "file=@results.json"  http://3y9ock8c44xj7mramywx2.appsecengineer.training:8880/callback
+    - name: send curl
+      run: |
+       curl -X POST -H "Content-Type: multipart/form-data" -F "file=@results.json"  http://3y9ock8c44xj7mramywx2.appsecengineer.training:8880/callback
  
